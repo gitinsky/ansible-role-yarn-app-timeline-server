@@ -1,0 +1,7 @@
+---
+- name: put yarn-app-timeline-server-{{ env_name }}.rb eye config file
+  template: src=app-timeline-server.rb dest=/etc/eye/yarn-app-timeline-server-{{ env_name }}.rb owner=root group=root mode=0644
+
+- name: load config in eye
+  command: bash -c "source /usr/local/rvm/scripts/rvm && eye l /etc/eye/apps.eye"
+  sudo: yes
